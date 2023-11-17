@@ -9,7 +9,6 @@ function App() {
 
   return (
     <div>
-            <h1>Ihre App</h1>
             <UploadButton onFileSelect={handleFileSelect} />
         </div>
   );
