@@ -1,0 +1,8 @@
+# Abhängigkeiten
+/node_modules
+
+# Editor-Verzeichnisse
+/.vscode
+
+# Umgebungsdateien
+.env
