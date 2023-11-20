@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
-import Button from '@mui/material/Button';
+import { Container, Typography, Box, Fab } from '@mui/material';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
-import InsertDriveFileIcon from '@mui/icons-material/InsertDriveFile'; // Dateisymbol
-import { Container, Typography, Box } from '@mui/material';
+import InsertDriveFileIcon from '@mui/icons-material/InsertDriveFile';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import Button from '@mui/material/Button';
+import { useNavigate } from 'react-router-dom';
+
 
 const UploadButton = () => {
     const [fileName, setFileName] = useState('');
+    const navigate = useNavigate();
 
     const handleUpload = (event) => {
         const file = event.target.files[0];
@@ -15,8 +19,12 @@ const UploadButton = () => {
         }
     };
 
+    const handleProceed = () => {
+        navigate('/editor');
+    }; 
+
     return (
-        <Container style={{ height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+        <Container sx={{ height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', overflow: 'hidden' }}>
             <Typography variant="h4" gutterBottom>
                 Wählen Sie eine GCode-Datei aus
             </Typography>
@@ -32,15 +40,26 @@ const UploadButton = () => {
                     component="span"
                     startIcon={<CloudUploadIcon />}
                     size="large"
+                    sx={{ mb: 2 }}
                 >
                     Datei hochladen
                 </Button>
             </label>
             {fileName && (
-                <Box mt={2} style={{ display: 'flex', alignItems: 'center' }}>
-                    <InsertDriveFileIcon /> {/* Dateisymbol */}
-                    <Typography variant="subtitle1" style={{ marginLeft: '10px' }}>
+                <Box sx={{ display: 'flex', alignItems: 'center', mt: 1 }}>
+                    <InsertDriveFileIcon />
+                    <Typography variant="subtitle1" sx={{ ml: 1 }}>
                         {fileName}
+                    </Typography>
+                </Box>
+            )}
+            {fileName && (
+                <Box sx={{ position: 'fixed', bottom: 16, right: 16, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                    <Fab color="primary" onClick={handleProceed} sx={{ mb: 1 }}>
+                        <ArrowForwardIcon />
+                    </Fab>
+                    <Typography variant="caption">
+                        Datei modifizieren
                     </Typography>
                 </Box>
             )}
