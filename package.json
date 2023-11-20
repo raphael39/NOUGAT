@@ -10,5 +10,7 @@
     "start-react": "cd client && npm start",
     "start-electron": "wait-on http://localhost:3000 && electron .",
     "start": "concurrently \"npm run start-react\" \"npm run start-electron\""
+  },
+  "dependencies": {
   }
 }

@@ -4,9 +4,12 @@ import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import InsertDriveFileIcon from '@mui/icons-material/InsertDriveFile';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import Button from '@mui/material/Button';
+import { useNavigate } from 'react-router-dom';
+
 
 const UploadButton = () => {
     const [fileName, setFileName] = useState('');
+    const navigate = useNavigate();
 
     const handleUpload = (event) => {
         const file = event.target.files[0];
@@ -17,9 +20,8 @@ const UploadButton = () => {
     };
 
     const handleProceed = () => {
-        console.log('Weiter zur Dateiverarbeitung...');
-        // Fügen Sie hier die Logik für die nächste Aktion ein
-    };
+        navigate('/editor');
+    }; 
 
     return (
         <Container sx={{ height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', overflow: 'hidden' }}>
