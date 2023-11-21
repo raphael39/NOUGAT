@@ -9,6 +9,8 @@ import Brightness7Icon from '@mui/icons-material/Brightness7'; // Sonnen-Icon
 
 const App = () => {
     const [darkMode, setDarkMode] = useState(true);
+    const [selectedFile, setSelectedFile] = useState(null);
+
 
     const theme = createTheme({
         palette: {
@@ -24,7 +26,8 @@ const App = () => {
     };
 
     const handleFileSelect = (file) => {
-      console.log('Ausgewählte Datei:', file);
+      console.log('Ausgewählte Datei in App.js:', file);
+      setSelectedFile(file);
       // Hier können Sie die Datei weiterverarbeiten
   };
 
@@ -36,7 +39,7 @@ const App = () => {
               <HeaderBar darkMode={darkMode} handleThemeChange={handleThemeChange} />
               <Routes>
                 <Route path="/" element={<UploadButton onFileSelect={handleFileSelect} />} />
-                <Route path="/editor" element={<EditorPage />} />
+                <Route path="/editor" element={<EditorPage selectedFile={selectedFile} />} />
               </Routes>          
             </Router>
 

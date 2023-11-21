@@ -7,7 +7,7 @@ import Button from '@mui/material/Button';
 import { useNavigate } from 'react-router-dom';
 
 
-const UploadButton = () => {
+const UploadButton = ({onFileSelect}) => {
     const [fileName, setFileName] = useState('');
     const navigate = useNavigate();
 
@@ -15,6 +15,7 @@ const UploadButton = () => {
         const file = event.target.files[0];
         if (file) {
             setFileName(file.name);
+            onFileSelect(file); // Übergeben Sie die Datei an die Elternkomponente
             // Führen Sie hier weitere Aktionen mit der Datei durch, z.B. einlesen
         }
     };

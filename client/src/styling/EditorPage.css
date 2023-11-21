@@ -1,0 +1,19 @@
+.editor-container {
+    display: flex;
+    height: 100%; /* oder setzen Sie eine spezifische Höhe */
+  }
+  
+  .parameters-section {
+    flex: 2; /* Nimmt 2/3 des verfügbaren Raums ein */
+    padding: 10px;
+    /* Weitere Stilisierungen nach Bedarf */
+  }
+  
+  .file-display-section {
+    flex: 1; /* Nimmt 1/3 des verfügbaren Raums ein */
+    padding: 10px;
+    overflow-y: auto; /* Macht den Bereich scrollbar, falls der Inhalt die Höhe überschreitet */
+    border-left: 1px solid #ccc; /* Optionale Trennlinie */
+    /* Weitere Stilisierungen nach Bedarf */
+  }
+  
